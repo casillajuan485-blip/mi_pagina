@@ -336,178 +336,219 @@ body {
 .col-md-6:nth-child(3n)   .interes { --acento: var(--violeta); }
 
 /* =====================================================
-   HORARIOS (MI DÍA A DÍA)
-   Pertenece a: <section id="horarios">.
+   HORARIO: INFALTABLES DIARIOS
+   Mantiene el formato de tabla del documento original.
 ===================================================== */
 
-/* Efecto: centra el encabezado de esta sección. */
 #horarios .titulo-seccion {
-    text-align: center;
     width: 100%;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
 }
 
-/* Efecto: etiqueta pequeña amarilla ("ORGANIZACIÓN PERSONAL"). */
 .etiqueta-seccion {
     color: var(--amarillo);
-    font-size: 0.8rem;
-    font-weight: 700;
+    font-size: 13px;
+    font-weight: bold;
     letter-spacing: 3px;
 }
 
-/* --- Tarjetas de resumen (comienzo y final del día) --- */
-
-/* Efecto: tarjeta con degradado, borde celeste tenue; ícono a
-   la izquierda y texto a la derecha. */
-.resumen-horario {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    padding: 25px;
-    background: linear-gradient(135deg, #101d32, #152b49);
-    border: 1px solid rgba(98, 230, 220, 0.18);
+/* DOCUMENTO DEL HORARIO */
+.horario-documento {
+    width: 100%;
+    margin: 40px auto 0;
+    background: #101a2b;
+    border: 1px solid #263b59;
     border-radius: 18px;
-    transition: 0.3s ease;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
-/* Efecto hover: sube y el borde se vuelve celeste. */
-.resumen-horario:hover {
-    transform: translateY(-5px);
-    border-color: var(--celeste);
+/* ENCABEZADO */
+.horario-titulo {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #142b49, #101a2b);
+    border-bottom: 1px solid #263b59;
 }
 
-/* Efecto: cuadrito redondeado que contiene el ícono. */
-.resumen-icono {
-    width: 58px;
-    height: 58px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(98, 230, 220, 0.12);
+.horario-titulo i {
     color: var(--celeste);
-    font-size: 1.7rem;
-    border-radius: 15px;
+    font-size: 35px;
+    margin-bottom: 12px;
 }
 
-/* Efecto: texto pequeño ("Comienzo del día") en gris azulado. */
-.resumen-horario span { color: #aabbd3; font-size: 0.9rem; }
-
-/* Efecto: la hora grande ("06:30 AM"). */
-.resumen-horario h3 {
-    color: var(--texto);
-    font-size: 1.5rem;
-    margin: 5px 0 0;
+.horario-titulo h3 {
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 0 0 12px;
 }
 
-/* --- Línea de tiempo --- */
-
-/* Efecto: limita el ancho de la línea de tiempo y la centra. */
-.timeline {
-    max-width: 850px;
-    margin: 0 auto;
-}
-
-/* Efecto: cada actividad se divide en 3 columnas con CSS Grid:
-   hora (75px) | punto (20px) | tarjeta (resto del espacio).
-   position:relative permite colocar la línea vertical dentro. */
-.timeline-item {
-    display: grid;
-    grid-template-columns: 75px 20px 1fr;
-    gap: 15px;
-    min-height: 105px;
-    position: relative;
-}
-
-/* Efecto: hora en celeste y negrita. */
-.timeline-hora {
-    color: var(--celeste);
-    font-weight: 700;
-    padding-top: 23px;
-}
-
-/* Efecto: punto circular azul con borde celeste y brillo. */
-.timeline-punto {
-    width: 13px;
-    height: 13px;
-    background: var(--azul);
-    border: 3px solid var(--celeste);
-    border-radius: 50%;
-    margin-top: 26px;
-    z-index: 1;
-    box-shadow: 0 0 12px rgba(98, 230, 220, 0.4);
-}
-
-/* Efecto: línea vertical que une los puntos. Se dibuja con un
-   pseudo-elemento ::before en todos los items menos el último;
-   tiene degradado que se desvanece hacia abajo. */
-.timeline-item:not(:last-child)::before {
-    content: "";
-    position: absolute;
-    left: 100px;
-    top: 38px;
-    bottom: -5px;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--azul), rgba(98, 230, 220, 0.15));
-}
-
-/* Efecto: tarjeta de la actividad con ícono, texto y etiqueta
-   en una fila (flex). */
-.timeline-contenido {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-    padding: 18px 20px;
-    margin-bottom: 15px;
-    background: #101d32;
-    border: 1px solid rgba(76, 141, 255, 0.18);
-    border-radius: 15px;
-    transition: 0.3s ease;
-}
-
-/* Efecto hover: se desplaza 7px a la derecha y cambia el borde. */
-.timeline-contenido:hover {
-    transform: translateX(7px);
-    border-color: var(--celeste);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-/* Efecto: ícono de la actividad en celeste (">" = hijo directo). */
-.timeline-contenido > i {
-    color: var(--celeste);
-    font-size: 1.6rem;
-}
-
-/* Efecto: nombre de la actividad. */
-.timeline-contenido h5 {
-    color: var(--texto);
-    font-size: 1rem;
-    margin: 0 0 5px;
-}
-
-/* Efecto: descripción de la actividad en gris azulado. */
-.timeline-contenido p {
+.horario-titulo p {
     color: #aabbd3;
-    font-size: 0.85rem;
+    font-size: 13px;
     margin: 0;
+    line-height: 1.6;
 }
 
-/* Efecto: etiqueta tipo "píldora" (Mañana, Estudios...) empujada
-   al extremo derecho con margin-left:auto. */
-.actividad-tag {
-    margin-left: auto;
-    padding: 6px 10px;
+/* TABLA */
+.tabla-horario {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+    color: var(--texto);
+}
+
+/* CABECERA DE COLUMNAS */
+.tabla-horario thead {
+    background: #1b3555;
+}
+
+.tabla-horario th {
+    padding: 17px 14px;
     color: var(--celeste);
-    background: rgba(98, 230, 220, 0.1);
-    border-radius: 20px;
-    font-size: 0.72rem;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    border-bottom: 2px solid #345071;
+}
+
+/* CELDAS */
+.tabla-horario td {
+    padding: 19px 14px;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.5;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* FILAS ALTERNADAS */
+.tabla-horario tbody tr {
+    background: #101a2b;
+    transition: 0.25s;
+}
+
+.tabla-horario tbody tr:nth-child(even) {
+    background: #142238;
+}
+
+/* EFECTO AL PASAR EL CURSOR */
+.tabla-horario tbody tr:hover {
+    background: #1b3555;
+}
+
+/* NUMERACIÓN */
+.tabla-horario tbody td:first-child {
+    color: var(--celeste);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* HORAS */
+.hora-horario {
+    color: var(--celeste);
+    font-weight: bold;
     white-space: nowrap;
 }
 
-/* Efecto: nota final "horario referencial". */
-.nota-horario {
-    color: #aabbd3;
-    font-size: 0.85rem;
+/* PRIORIDADES */
+.prioridad-horario {
+    display: inline-block;
+    padding: 7px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.cuidado {
+    color: #62e6dc;
+    background: rgba(98, 230, 220, 0.12);
+}
+
+.principal {
+    color: #79aaff;
+    background: rgba(76, 141, 255, 0.15);
+}
+
+.responsabilidad {
+    color: #b6a0ff;
+    background: rgba(155, 107, 255, 0.15);
+}
+
+.fijo {
+    color: #ffc857;
+    background: rgba(255, 200, 87, 0.12);
+}
+
+.enfoque {
+    color: #79aaff;
+    background: rgba(76, 141, 255, 0.15);
+}
+
+.creativo {
+    color: #ff8abb;
+    background: rgba(255, 95, 162, 0.13);
+}
+
+.recompensa {
+    color: #62e6dc;
+    background: rgba(98, 230, 220, 0.12);
+}
+
+/* TOTAL DE ACTIVIDADES */
+.horario-total {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 22px;
+    background: #142238;
+    border-top: 1px solid #263b59;
+    color: #c6d5e9;
+    font-size: 14px;
+}
+
+.horario-total i {
+    color: var(--celeste);
+    font-size: 19px;
+}
+
+.horario-total strong {
+    color: var(--celeste);
+}
+
+/* ADAPTACIÓN PARA TABLETS Y CELULARES */
+@media (max-width: 768px) {
+
+    .horario-titulo {
+        padding: 25px 15px;
+    }
+
+    .horario-titulo h3 {
+        font-size: 19px;
+    }
+
+    .horario-titulo p {
+        font-size: 12px;
+    }
+
+    .tabla-horario th,
+    .tabla-horario td {
+        padding: 15px 12px;
+    }
+
+    .horario-total {
+        font-size: 12px;
+    }
 }
 
 /* =====================================================
