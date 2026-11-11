@@ -1,0 +1,77 @@
+/* =====================================================
+   efectos.css - cargar DESPUÉS de estilo.css y extra.css
+   Contiene: 1 Fondo degradado en movimiento | 2 Animación al
+   hacer scroll | 3 Corrección del corazón en las tarjetas
+===================================================== */
+
+/* ---------- 1. FONDO DEGRADADO QUE SE MUEVE SUAVEMENTE ----------
+   Dos capas fijas detrás de todo el contenido (z-index: -1):
+   ::before = degradado grande que se desplaza lentamente
+   ::after  = manchas de color que flotan y giran un poco.
+   Las secciones se vuelven transparentes para que se vea el fondo. */
+body::before {
+    content: ""; position: fixed; inset: 0; z-index: -2;
+    background: linear-gradient(120deg, #090e19, #14123a, #0b2a33, #2a1236, #090e19);
+    background-size: 300% 300%;
+    animation: fondoMovil 30s ease-in-out infinite;
+}
+body::after {
+    content: ""; position: fixed; inset: -20%; z-index: -1; pointer-events: none;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(98, 230, 220, .13), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(155, 107, 255, .15), transparent 40%),
+        radial-gradient(circle at 60% 15%, rgba(255, 95, 162, .10), transparent 35%);
+    animation: deriva 40s ease-in-out infinite alternate;
+}
+@keyframes fondoMovil {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+@keyframes deriva { to { transform: translate(4%, 3%) scale(1.1) rotate(3deg); } }
+
+/* Secciones transparentes (la alternativa queda un poco más oscura) */
+.seccion { background-color: transparent; }
+.seccion-alternativa { background-color: rgba(14, 23, 38, .55); }
+
+/* Versión modo claro: pasteles suaves */
+[data-tema="claro"] body::before {
+    background: linear-gradient(120deg, #f4f7fc, #e3f6f5, #efe8ff, #fde8f1, #f4f7fc);
+    background-size: 300% 300%;
+}
+[data-tema="claro"] body::after {
+    background:
+        radial-gradient(circle at 20% 30%, rgba(10, 157, 150, .10), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(123, 77, 255, .10), transparent 40%),
+        radial-gradient(circle at 60% 15%, rgba(255, 95, 162, .08), transparent 35%);
+}
+[data-tema="claro"] .seccion { background: transparent; }
+[data-tema="claro"] .seccion-alternativa { background: rgba(231, 238, 249, .6); }
+
+/* ---------- 2. ANIMACIÓN AL HACER SCROLL ----------
+   js/efectos.js agrega "reveal" (oculto, desplazado hacia abajo)
+   y luego "visible" (aparece subiendo) cuando entra en pantalla. */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(.97);
+    transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1);
+    transition-delay: var(--d, 0s);
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* Si la persona prefiere menos movimiento, se desactivan las animaciones */
+@media (prefers-reduced-motion: reduce) {
+    body::before, body::after { animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- 3. CORRECCIÓN: el corazón ya no voltea la tarjeta ----------
+   - Solo en dispositivos con mouse la tarjeta se levanta al pasar el cursor
+     (en celular ese movimiento desplazaba el corazón al tocarlo).
+   - La cara que no se ve no recibe clics. */
+.flip:not(.volteada):hover .flip-inner { transform: none; }
+@media (hover: hover) {
+    .flip:not(.volteada):hover .flip-inner { transform: translateY(-6px); }
+}
+.flip:not(.volteada) .dorso,
+.flip.volteada .frente { pointer-events: none; }
