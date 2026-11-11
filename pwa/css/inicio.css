@@ -1,0 +1,332 @@
+/* Inicio móvil inspirado en el boceto. Los selectores de portada quedan
+   limitados a #inicio y al encabezado cuando esa vista está activa. */
+.app-mas-panel, .app-mas-fondo { display: none; }
+
+@media (max-width: 767.98px) {
+  body[data-app-vista="inicio"] .app-movil-cabecera {
+    background: linear-gradient(115deg, #123d46, #292440 90%);
+    border-bottom-color: transparent;
+  }
+  body[data-app-vista="inicio"] .app-movil-marca strong {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    line-height: 1.15;
+    letter-spacing: -.6px;
+  }
+  #app-movil-tema {
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+  }
+  #inicio {
+    background:
+      radial-gradient(ellipse at 0% 48%, rgba(133, 77, 167, .32), transparent 65%),
+      radial-gradient(ellipse at 100% 50%, rgba(48, 145, 156, .27), transparent 65%),
+      linear-gradient(150deg, #133d46, #25223e 48%, #152e40);
+    padding: 14px 16px 24px !important;
+  }
+  #inicio #miCarrusel {
+    position: relative;
+    border-radius: 23px;
+    border: 1px solid rgba(233, 251, 255, .2);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, .18);
+    isolation: isolate;
+  }
+  #inicio #miCarrusel img {
+    height: clamp(180px, 27dvh, 250px) !important;
+    object-fit: cover;
+    filter: brightness(.9);
+  }
+  #inicio .carousel-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent 15%, rgba(9, 18, 29, .78));
+    pointer-events: none;
+  }
+  #inicio #miCarrusel .carousel-caption {
+    z-index: 1;
+    left: 11%;
+    right: 11%;
+    bottom: 29px !important;
+    padding: 10px 0 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .4);
+  }
+  #inicio #miCarrusel .carousel-caption h2 {
+    font-size: clamp(18px, 4.7vw, 24px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 7px;
+  }
+  #inicio #miCarrusel .carousel-caption p {
+    font-size: 12px;
+    line-height: 1.4;
+    color: #f0f4f7;
+    margin: 0;
+  }
+  #inicio .carousel-indicators { margin-bottom: 13px; gap: 5px; }
+  #inicio .carousel-indicators [data-bs-target] {
+    width: 6px;
+    height: 6px;
+    border: 0;
+    border-radius: 20px;
+    margin: 0;
+    opacity: .5;
+  }
+  #inicio .carousel-indicators .active { width: 24px; opacity: 1; }
+  #inicio .carousel-control-prev,
+  #inicio .carousel-control-next { width: 10%; opacity: .85; }
+  #inicio .carousel-control-prev-icon,
+  #inicio .carousel-control-next-icon { width: 22px; height: 22px; }
+  #inicio .app-movil-accesos {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(65px, 9.5dvh));
+    gap: 11px;
+    margin: 15px 0 0;
+  }
+  #inicio .app-movil-accesos button {
+    position: relative;
+    overflow: hidden;
+    border-radius: 21px;
+    padding: 13px 10px;
+    min-height: 0;
+    gap: 8px;
+    color: #f5f8ff;
+    border: 1px solid rgba(212, 240, 255, .25);
+    background: linear-gradient(135deg, rgba(201, 234, 255, .18), rgba(172, 213, 236, .07));
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .13), 0 6px 15px rgba(2, 13, 27, .12);
+    transition: transform .18s, background-color .18s, border-color .18s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  #inicio .app-movil-accesos button:active { transform: scale(.97); }
+  #inicio .app-movil-accesos button i {
+    color: #73ede0;
+    font-size: 29px;
+    line-height: 1;
+    filter: drop-shadow(0 4px 6px rgba(5, 24, 45, .25));
+  }
+  #inicio .app-movil-accesos button span {
+    position: relative;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  #inicio .acceso-pasatiempos {
+    grid-area: 1 / 1 / 3 / 5;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 22px 16px;
+  }
+  #inicio .app-movil-accesos .acceso-pasatiempos i {
+    font-size: 67px;
+    color: #71e3dc;
+    transform: rotate(-12deg);
+  }
+  #inicio .app-movil-accesos .acceso-pasatiempos span { font-size: 16px; }
+  #inicio .acceso-miniatura {
+    position: absolute;
+    right: 13px;
+    bottom: 14px;
+    width: 30%;
+    max-width: 72px;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, .45);
+    border-radius: 12px;
+    transform: rotate(5deg);
+  }
+  #inicio .acceso-juegos { grid-area: 1 / 5 / 3 / 7; }
+  #inicio .app-movil-accesos .acceso-juegos i { font-size: 49px; color: #69eee1; }
+  #inicio .acceso-musica { grid-area: 3 / 1 / 5 / 3; }
+  #inicio .app-movil-accesos .acceso-musica i { font-size: 49px; color: #c4b3f8; }
+  #inicio .acceso-horarios { grid-area: 3 / 3 / 4 / 5; }
+  #inicio .acceso-opinion { grid-area: 3 / 5 / 4 / 7; }
+  #inicio .acceso-intereses {
+    grid-area: 4 / 3 / 5 / 7;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 14px;
+    padding-left: 19px;
+  }
+
+  /* Cinco destinos con etiquetas completas y espacio para el área segura.
+     La navegación conserva su lugar al entrar en las secciones existentes. */
+  .app-movil-nav {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    left: 10px;
+    right: 10px;
+    bottom: max(8px, env(safe-area-inset-bottom, 0px));
+    height: 68px;
+    padding: 5px;
+    border: 1px solid rgba(205, 233, 255, .25);
+    border-radius: 27px;
+    background: rgba(29, 48, 69, .96);
+    box-shadow: 0 7px 22px rgba(0, 0, 0, .25);
+  }
+  .app-movil-nav button { gap: 4px; border-radius: 21px; min-height: 44px; }
+  .app-movil-nav button i { font-size: 21px; }
+  .app-movil-nav button span { font-size: clamp(9px, 2.5vw, 11px); }
+  .app-movil-nav button.activo {
+    background: rgba(89, 230, 215, .12);
+    color: #77f4e8;
+    box-shadow: inset 0 0 0 1px rgba(112, 243, 225, .45);
+  }
+  .app-movil-nav button:focus-visible,
+  #app-movil-tema:focus-visible,
+  #inicio button:focus-visible,
+  .app-mas-panel button:focus-visible {
+    outline: 3px solid #9ffbef;
+    outline-offset: -4px;
+  }
+  /* El panel es modal. Su fondo permite cerrar con un toque fuera. */
+  .app-mas-fondo:not([hidden]) {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1250;
+    background: rgba(3, 9, 21, .62);
+  }
+  .app-mas-panel:not([hidden]) {
+    display: block;
+    position: fixed;
+    z-index: 1260;
+    left: 14px;
+    right: 14px;
+    bottom: calc(85px + env(safe-area-inset-bottom, 0px));
+    padding: 18px;
+    border-radius: 23px;
+    color: #f5f8ff;
+    background: #20364b;
+    border: 1px solid #527085;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, .35);
+    max-height: 70dvh;
+    overflow-y: auto;
+  }
+  .app-mas-encabezado { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+  .app-mas-encabezado h2 { font-size: 18px; margin: 0; }
+  .app-mas-panel button {
+    color: inherit;
+    border: 0;
+    background: transparent;
+    min-height: 48px;
+    border-radius: 12px;
+    padding: 10px;
+    font: inherit;
+  }
+  .app-mas-panel > button {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    text-align: left;
+  }
+  .app-mas-panel > button i:first-child { color: #73ede0; font-size: 23px; }
+  .app-mas-panel > button i:last-child { margin-left: auto; font-size: 13px; }
+  .app-mas-panel button:hover { background: rgba(145, 206, 228, .13); }
+
+  /* El tema claro mantiene el mismo orden y contraste en la portada. */
+  [data-tema="claro"] body[data-app-vista="inicio"] .app-movil-cabecera {
+    background: linear-gradient(110deg, #e4f4f1, #eeebf7);
+  }
+  [data-tema="claro"] #inicio {
+    background: radial-gradient(at 0% 45%, #e9e2f3, transparent 70%),
+      linear-gradient(145deg, #e3f3f1, #edf0f8);
+  }
+  [data-tema="claro"] #app-movil-tema { color: #126b67; border-color: #97c7c3; background: rgba(255, 255, 255, .7); }
+  [data-tema="claro"] .app-movil-marca span { color: #246d6b; }
+  [data-tema="claro"] #inicio .app-movil-accesos button {
+    background: linear-gradient(135deg, rgba(255, 255, 255, .9), rgba(255, 255, 255, .6));
+    color: #18324a;
+    border-color: #b6ccd8;
+    box-shadow: 0 5px 14px rgba(39, 66, 94, .07);
+  }
+  [data-tema="claro"] #inicio .app-movil-accesos button i,
+  [data-tema="claro"] .app-mas-panel > button i:first-child { color: #157a72; filter: none; }
+  [data-tema="claro"] .app-movil-nav { background: rgba(247, 251, 255, .97); }
+  [data-tema="claro"] .app-mas-panel { background: #f7fbff; color: #18324a; border-color: #b6ccd8; }
+  [data-tema="claro"] #inicio button:focus-visible,
+  [data-tema="claro"] .app-movil-nav button:focus-visible,
+  [data-tema="claro"] #app-movil-tema:focus-visible,
+  [data-tema="claro"] .app-mas-panel button:focus-visible { outline-color: #157a72; }
+}
+@media (max-width: 359px) {
+  #inicio { padding-left: 12px !important; padding-right: 12px !important; }
+  #inicio .app-movil-accesos { gap: 8px; }
+  #inicio .app-movil-accesos button span { font-size: 11px; }
+  #inicio .app-movil-accesos .acceso-pasatiempos span { font-size: 13px; }
+  #inicio .acceso-miniatura { width: 26%; }
+  #inicio .app-movil-accesos .acceso-pasatiempos i { font-size: 55px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #inicio .app-movil-accesos button { transition: none; }
+}
+
+
+/* La portada distribuye la altura disponible entre el carrusel y la rejilla.
+   Las filas flexibles permiten ver todos los accesos sin desplazar Inicio,
+   incluso cuando la barra del navegador reduce el espacio del teléfono. */
+@media (max-width: 767.98px) {
+  #inicio.app-vista-activa {
+    display: flex !important;
+    flex-direction: column;
+    gap: clamp(8px, 1.5dvh, 14px);
+    padding: 10px 14px 12px !important;
+    overflow: hidden !important;
+    container-type: size;
+  }
+  #inicio #miCarrusel {
+    flex: 0 0 38%;
+    min-height: 0;
+  }
+  #inicio #miCarrusel .carousel-inner,
+  #inicio #miCarrusel .carousel-item,
+  #inicio #miCarrusel img { height: 100% !important; }
+  #inicio .app-movil-accesos {
+    flex: 1 1 0;
+    min-height: 0;
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    gap: clamp(6px, 1.4cqh, 11px);
+    margin: 0;
+  }
+  #inicio .app-movil-accesos button {
+    padding: clamp(6px, 1.5cqh, 13px) 8px;
+    gap: clamp(4px, 1cqh, 8px);
+    border-radius: clamp(14px, 3cqh, 21px);
+  }
+  #inicio .app-movil-accesos button i { font-size: clamp(21px, 5.5cqh, 30px); }
+  #inicio .app-movil-accesos button span { font-size: clamp(10px, 2.3cqh, 14px); }
+  #inicio .app-movil-accesos .acceso-pasatiempos { padding: clamp(10px, 2.5cqh, 20px) 12px; }
+  #inicio .app-movil-accesos .acceso-pasatiempos i { font-size: clamp(35px, 11cqh, 72px); }
+  #inicio .app-movil-accesos .acceso-pasatiempos span { font-size: clamp(12px, 2.6cqh, 17px); }
+  #inicio .app-movil-accesos .acceso-juegos i,
+  #inicio .app-movil-accesos .acceso-musica i { font-size: clamp(30px, 8cqh, 54px); }
+  #inicio .acceso-miniatura { width: min(28%, 10cqh); bottom: 12px; right: 12px; }
+  #inicio .acceso-intereses { padding-left: 14px; }
+  #inicio #miCarrusel .carousel-caption { bottom: 24px !important; padding-top: 0; }
+  #inicio #miCarrusel .carousel-caption h2 { font-size: clamp(16px, 3.5cqh, 24px); margin-bottom: 5px; }
+  #inicio #miCarrusel .carousel-caption p { font-size: clamp(10px, 2.1cqh, 13px); }
+}
+/* En horizontal, la imagen queda a la izquierda y los seis accesos a la
+   derecha. Se conserva un área táctil amplia con dos filas de tarjetas. */
+@media (max-width: 767.98px) and (orientation: landscape) {
+  #inicio.app-vista-activa { flex-direction: row; }
+  #inicio #miCarrusel { flex-basis: 40%; }
+  #inicio .app-movil-accesos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+  #inicio .app-movil-accesos button {
+    grid-area: auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 6px;
+    gap: 5px;
+  }
+  #inicio .app-movil-accesos .acceso-pasatiempos i,
+  #inicio .app-movil-accesos .acceso-juegos i,
+  #inicio .app-movil-accesos .acceso-musica i { font-size: clamp(24px, 10cqh, 38px); transform: none; }
+  #inicio .app-movil-accesos .acceso-pasatiempos span { font-size: clamp(10px, 2.3cqh, 14px); }
+  #inicio .acceso-miniatura { display: none; }
+}
