@@ -1,0 +1,44 @@
+[
+  {
+    "titulo": "Aprender inglés",
+    "insignia": "01",
+    "icono": "bi-translate",
+    "img": "https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=800&q=80",
+    "desc": "para poder mejorar mi vocabulario, pronunciación y capacidad de comunicación."
+  },
+  {
+    "titulo": "Bases de datos",
+    "insignia": "02",
+    "icono": "bi-database-fill",
+    "img": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80",
+    "desc": "Aprender a diseñar, organizar y administrar información."
+  },
+  {
+    "titulo": "Programación",
+    "insignia": "03",
+    "icono": "bi-code-slash",
+    "img": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&q=80",
+    "desc": "Desarrollar mi lógica y aprender diferentes lenguajes de programación."
+  },
+  {
+    "titulo": "Desarrollo web",
+    "insignia": "04",
+    "icono": "bi-globe2",
+    "img": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80",
+    "desc": "Crear páginas web utilizando HTML, CSS, Bootstrap y otras tecnologías."
+  },
+  {
+    "titulo": "Nuevas tecnologías",
+    "insignia": "05",
+    "icono": "bi-cpu-fill",
+    "img": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=80",
+    "desc": "Conocer herramientas digitales, inteligencia artificial y tendencias tecnológicas."
+  },
+  {
+    "titulo": "Desarrollo personal",
+    "insignia": "06",
+    "icono": "bi-rocket-takeoff-fill",
+    "img": "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=800&q=80",
+    "desc": "Fortalecer mi disciplina, creatividad, responsabilidad y pensamiento lógico."
+  }
+]

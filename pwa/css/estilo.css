@@ -1,0 +1,891 @@
+/* =====================================================
+   VARIABLES DE COLOR
+   Pertenece a: toda la página (:root = elemento raíz).
+   Efecto: guardo los colores una sola vez y los reutilizo
+   con var(--nombre). Si cambio un color aquí, cambia en
+   toda la página.
+===================================================== */
+:root {
+    --fondo: #090e19;      /* azul muy oscuro del fondo */
+    --azul: #4c8dff;       /* azul principal */
+    --celeste: #62e6dc;    /* color de acento principal */
+    --texto: #edf3ff;      /* blanco azulado para textos */
+    --rosa: #ff5fa2;       /* acento cálido 1 */
+    --amarillo: #ffc857;   /* acento cálido 2 */
+    --violeta: #9b6bff;    /* acento cálido 3 */
+}
+
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+   Pertenece a: <body>.
+   Efecto: fondo oscuro, texto claro y tipo de letra Arial
+   en toda la página.
+===================================================== */
+body {
+    background-color: var(--fondo);
+    color: var(--texto);
+    font-family: Arial, sans-serif;
+}
+
+/* =====================================================
+   BARRA DE NAVEGACIÓN
+   Pertenece a: <nav class="navbar"> (menú superior).
+===================================================== */
+
+/* Efecto: fondo oscuro, línea inferior y espacio interno. */
+.navbar {
+    background-color: #080d18;
+    border-bottom: 1px solid #24334a;
+    padding: 15px 0;
+}
+
+/* Efecto: enlaces en gris claro con transición suave.
+   !important es necesario para ganarle a los estilos de Bootstrap. */
+.nav-link {
+    color: #c2cce0 !important;
+    margin-left: 12px;
+    transition: 0.3s;
+}
+
+/* Efecto: al pasar el cursor, el enlace se pone amarillo. */
+.nav-link:hover { color: var(--amarillo) !important; }
+
+/* Efecto: botón de hamburguesa (celulares) con borde celeste,
+   alineado a la derecha. */
+.navbar-toggler {
+    border-color: var(--celeste);
+    margin-left: auto;
+}
+
+/* Efecto: centra los enlaces y deja espacio entre ellos. */
+.navbar-nav {
+    margin: auto;
+    gap: 15px;
+}
+
+/* =====================================================
+   CARRUSEL DE FOTOGRAFÍAS
+   Pertenece a: <div id="miCarrusel"> (sección inicio).
+===================================================== */
+
+/* Efecto: esquinas redondeadas y borde; overflow:hidden
+   recorta las imágenes para respetar las esquinas. */
+#miCarrusel {
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid #24334a;
+}
+
+/* Efecto: todas las fotos con el mismo alto, recortadas sin
+   deformarse (object-fit) y oscurecidas al 55% para que el
+   texto blanco se lea bien. */
+#miCarrusel img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    filter: brightness(55%);
+}
+
+/* Efecto: sube el texto sobre la foto (queda más al centro). */
+#miCarrusel .carousel-caption { bottom: 25%; }
+
+/* Efecto: título grande y blanco sobre la foto. */
+#miCarrusel .carousel-caption h2 {
+    font-size: 38px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Efecto: subtítulo en celeste claro. */
+#miCarrusel .carousel-caption p {
+    color: #dce8f8;
+    font-size: 17px;
+}
+
+/* =====================================================
+   ESTRUCTURA DE LAS SECCIONES
+   Pertenece a: todas las <section class="seccion">.
+===================================================== */
+
+/* Efecto: espacio arriba y abajo para que cada sección respire. */
+.seccion {
+    padding: 85px 0;
+    background-color: #090e19;
+}
+
+/* Efecto: fondo un poco más claro con líneas arriba y abajo;
+   alterna con las demás secciones para separarlas visualmente. */
+.seccion-alternativa {
+    background-color: #0e1726;
+    border-top: 1px solid #24334a;
+    border-bottom: 1px solid #24334a;
+}
+
+/* Pertenece a: el encabezado de cada sección (.titulo-seccion).
+   Efecto: limita el ancho y deja espacio debajo. */
+.titulo-seccion {
+    margin-bottom: 35px;
+    max-width: 700px;
+}
+
+/* Efecto: la etiqueta pequeña ("01 / TIEMPO LIBRE") en amarillo,
+   con letras separadas. */
+.titulo-seccion span {
+    color: var(--amarillo);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Efecto: título con degradado de color. Se pinta el fondo con
+   el degradado, se recorta con la forma del texto
+   (background-clip:text) y se hace transparente el color de
+   la letra para que se vea el degradado. */
+.titulo-seccion h2 {
+    font-size: 38px;
+    font-weight: bold;
+    margin-top: 10px;
+    background: linear-gradient(90deg, #ffffff, var(--celeste), var(--violeta));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Efecto: descripción en gris claro bajo el título. */
+.titulo-seccion p {
+    color: #a2afc3;
+    font-size: 16px;
+}
+
+/* =====================================================
+   TARJETAS: PASATIEMPOS Y VIDEOJUEGOS
+   Pertenece a: .tarjeta (sección Pasatiempos) y
+   .tarjeta-juego (sección Videojuegos). Comparten estilo.
+===================================================== */
+
+/* Efecto: tarjeta oscura con borde, esquinas redondeadas y
+   transición para animar el hover. */
+.tarjeta,
+.tarjeta-juego {
+    background-color: #142238;
+    color: var(--texto);
+    border: 1px solid #263b59;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+/* Efecto: imágenes con alto fijo, recortadas sin deformarse. */
+.tarjeta img { height: 200px; object-fit: cover; }
+.tarjeta-juego img { height: 190px; object-fit: cover; }
+
+/* Efecto: espacio interno del texto de la tarjeta. */
+.tarjeta .card-body,
+.tarjeta-juego .card-body { padding: 22px; }
+
+/* Efecto: título de la tarjeta en blanco y negrita. */
+.tarjeta .card-title,
+.tarjeta-juego .card-title {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Efecto: descripción en gris claro y letra más pequeña. */
+.tarjeta .card-text,
+.tarjeta-juego .card-text {
+    color: #a2afc3;
+    font-size: 14px;
+}
+
+/* Efecto hover: la tarjeta se eleva 7px y proyecta sombra. */
+.tarjeta:hover,
+.tarjeta-juego:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px #00000040;
+}
+
+/* Efecto hover con color distinto: nth-child(3n+1) elige la 1ª,
+   4ª, 7ª... columna; 3n+2 la 2ª, 5ª...; 3n la 3ª, 6ª...
+   Así el borde brilla rosa, amarillo o violeta en patrón repetido. */
+.col-lg-4:nth-child(3n+1) .tarjeta:hover,
+.col-lg-4:nth-child(3n+1) .tarjeta-juego:hover { border-color: var(--rosa); }
+.col-lg-4:nth-child(3n+2) .tarjeta:hover,
+.col-lg-4:nth-child(3n+2) .tarjeta-juego:hover { border-color: var(--amarillo); }
+.col-lg-4:nth-child(3n) .tarjeta:hover,
+.col-lg-4:nth-child(3n) .tarjeta-juego:hover { border-color: var(--violeta); }
+
+/* =====================================================
+   INTERESES PRODUCTIVOS (con imágenes)
+   Reemplaza TODO el bloque "INTERESES PRODUCTIVOS" que
+   tienes en estilo.css (.interes, .numero, .interes h5,
+   .interes p, .interes:hover y las reglas nth-child de .numero).
+===================================================== */
+
+/* Efecto: tarjeta vertical (imagen arriba, texto abajo).
+   overflow:hidden recorta la foto con las esquinas redondeadas;
+   height:100% hace que las 6 tarjetas midan igual. */
+.interes {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #142238;
+    border: 1px solid #263b59;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+/* Efecto hover: la tarjeta sube y proyecta una sombra del
+   color de acento (la variable --acento cambia por tarjeta). */
+.interes:hover {
+    transform: translateY(-8px);
+    border-color: var(--acento, var(--azul));
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Efecto: marco de la foto con alto fijo.
+   position:relative sirve para ubicar la insignia encima. */
+.interes-img {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+}
+
+/* Efecto: la foto llena el marco sin deformarse y se oscurece un
+   poco; al pasar el cursor por la tarjeta hace zoom. */
+.interes-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(75%);
+    transition: transform 0.5s ease, filter 0.3s;
+}
+
+.interes:hover .interes-img img {
+    transform: scale(1.08);
+    filter: brightness(95%);
+}
+
+/* Efecto: degradado oscuro en la parte baja de la foto para que
+   se funda suavemente con el texto (pseudo-elemento ::after). */
+.interes-img::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 60%;
+    background: linear-gradient(to top, #142238, transparent);
+}
+
+/* Efecto: insignia circular con ícono en la esquina de la foto.
+   position:absolute + z-index la coloca por encima del degradado. */
+.interes-icono {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 2;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--acento, var(--celeste));
+    color: #090e19;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s;
+}
+
+/* Efecto hover: la insignia gira un poco y crece. */
+.interes:hover .interes-icono { transform: rotate(-10deg) scale(1.12); }
+
+/* Efecto: zona del texto con espacio interno; flex:1 hace que
+   ocupe el alto restante y todas las tarjetas queden parejas. */
+.interes-texto {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    padding: 0 22px 24px;
+    margin-top: -14px;
+}
+
+/* Efecto: número grande en el color de acento de la tarjeta. */
+.numero {
+    color: var(--acento, var(--celeste));
+    font-size: 26px;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+/* Efecto: título y descripción de la tarjeta. */
+.interes h5 { color: #ffffff; font-weight: bold; }
+
+.interes p {
+    color: #a2afc3;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+/* Efecto: cada tarjeta recibe un color de acento distinto.
+   --acento es una variable local que usan el número, la insignia
+   y el borde hover. nth-child(3n+1) = 1ª y 4ª, 3n+2 = 2ª y 5ª,
+   3n = 3ª y 6ª. */
+.col-md-6:nth-child(3n+1) .interes { --acento: var(--rosa); }
+.col-md-6:nth-child(3n+2) .interes { --acento: var(--amarillo); }
+.col-md-6:nth-child(3n)   .interes { --acento: var(--violeta); }
+
+/* =====================================================
+   HORARIO: INFALTABLES DIARIOS
+   Mantiene el formato de tabla del documento original.
+===================================================== */
+
+#horarios .titulo-seccion {
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.etiqueta-seccion {
+    color: var(--amarillo);
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+/* DOCUMENTO DEL HORARIO */
+.horario-documento {
+    width: 100%;
+    margin: 40px auto 0;
+    background: #101a2b;
+    border: 1px solid #263b59;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+/* ENCABEZADO */
+.horario-titulo {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #142b49, #101a2b);
+    border-bottom: 1px solid #263b59;
+}
+
+.horario-titulo i {
+    color: var(--celeste);
+    font-size: 35px;
+    margin-bottom: 12px;
+}
+
+.horario-titulo h3 {
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 0 0 12px;
+}
+
+.horario-titulo p {
+    color: #aabbd3;
+    font-size: 13px;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* TABLA */
+.tabla-horario {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+    color: var(--texto);
+}
+
+/* CABECERA DE COLUMNAS */
+.tabla-horario thead {
+    background: #1b3555;
+}
+
+.tabla-horario th {
+    padding: 17px 14px;
+    color: var(--celeste);
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    border-bottom: 2px solid #345071;
+}
+
+/* CELDAS */
+.tabla-horario td {
+    padding: 19px 14px;
+    font-size: 13px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.5;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* FILAS ALTERNADAS */
+.tabla-horario tbody tr {
+    background: #101a2b;
+    transition: 0.25s;
+}
+
+.tabla-horario tbody tr:nth-child(even) {
+    background: #142238;
+}
+
+/* EFECTO AL PASAR EL CURSOR */
+.tabla-horario tbody tr:hover {
+    background: #1b3555;
+}
+
+/* NUMERACIÓN */
+.tabla-horario tbody td:first-child {
+    color: var(--celeste);
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* HORAS */
+.hora-horario {
+    color: var(--celeste);
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* PRIORIDADES */
+.prioridad-horario {
+    display: inline-block;
+    padding: 7px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.cuidado {
+    color: #62e6dc;
+    background: rgba(98, 230, 220, 0.12);
+}
+
+.principal {
+    color: #79aaff;
+    background: rgba(76, 141, 255, 0.15);
+}
+
+.responsabilidad {
+    color: #b6a0ff;
+    background: rgba(155, 107, 255, 0.15);
+}
+
+.fijo {
+    color: #ffc857;
+    background: rgba(255, 200, 87, 0.12);
+}
+
+.enfoque {
+    color: #79aaff;
+    background: rgba(76, 141, 255, 0.15);
+}
+
+.creativo {
+    color: #ff8abb;
+    background: rgba(255, 95, 162, 0.13);
+}
+
+.recompensa {
+    color: #62e6dc;
+    background: rgba(98, 230, 220, 0.12);
+}
+
+/* TOTAL DE ACTIVIDADES */
+.horario-total {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 22px;
+    background: #142238;
+    border-top: 1px solid #263b59;
+    color: #c6d5e9;
+    font-size: 14px;
+}
+
+.horario-total i {
+    color: var(--celeste);
+    font-size: 19px;
+}
+
+.horario-total strong {
+    color: var(--celeste);
+}
+
+/* ADAPTACIÓN PARA TABLETS Y CELULARES */
+@media (max-width: 768px) {
+
+    .horario-titulo {
+        padding: 25px 15px;
+    }
+
+    .horario-titulo h3 {
+        font-size: 19px;
+    }
+
+    .horario-titulo p {
+        font-size: 12px;
+    }
+
+    .tabla-horario th,
+    .tabla-horario td {
+        padding: 15px 12px;
+    }
+
+    .horario-total {
+        font-size: 12px;
+    }
+}
+
+/* =====================================================
+   MÚSICA
+   Pertenece a: <section id="musica">. Todas las reglas
+   empiezan con #musica para que solo afecten esta sección.
+===================================================== */
+
+/* Efecto: dos columnas (lista a la izquierda, reproductor a la
+   derecha) con CSS Grid. 1fr y 1.15fr dan un poco más de ancho
+   al reproductor. */
+#musica .contenedor-musica {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 30px;
+    align-items: center;
+    margin-top: 40px;
+}
+
+/* Efecto: centra el encabezado de la sección. */
+#musica .titulo-seccion {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Efecto: apila los botones de canciones en vertical. */
+#musica .lista-musica {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Efecto: cada canción es un botón ancho con número, datos e
+   ícono en fila. */
+#musica .cancion {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    background: #101a35;
+    color: var(--texto);
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Efecto: al pasar el cursor o cuando está seleccionada (.activa,
+   la agrega el JavaScript), cambia de fondo, borde y se mueve
+   un poco a la derecha. */
+#musica .cancion:hover,
+#musica .cancion.activa {
+    border-color: var(--celeste);
+    background: #142b55;
+    transform: translateX(5px);
+}
+
+/* Efecto: número de la canción en celeste. */
+#musica .numero-cancion {
+    color: var(--celeste);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Efecto: título y artista uno debajo del otro; flex:1 ocupa el
+   espacio libre y empuja el ícono a la derecha. */
+#musica .datos-cancion {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 5px;
+}
+
+#musica .datos-cancion strong { font-size: 16px; }
+
+#musica .datos-cancion small {
+    color: #b6c4df;
+    font-size: 14px;
+}
+
+/* Efecto: ícono de play de la lista en celeste. */
+#musica .cancion > i {
+    color: var(--celeste);
+    font-size: 25px;
+}
+
+/* --- Reproductor visual (panel derecho) --- */
+
+/* Efecto: panel con degradado, borde celeste tenue y sombra. */
+#musica .reproductor-musica {
+    padding: 25px;
+    border: 1px solid rgba(98, 230, 220, 0.2);
+    border-radius: 20px;
+    background: linear-gradient(145deg, #101c3c, #080e20);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+/* Efecto: etiqueta "CANCIÓN SELECCIONADA" pequeña y espaciada. */
+#musica .etiqueta-reproductor {
+    color: var(--celeste);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Efecto: título de la canción seleccionada (el JS cambia el texto). */
+#musica .reproductor-musica h3 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: var(--texto);
+    font-size: 28px;
+}
+
+/* Efecto: nombre del artista (el JS cambia el texto). */
+#musica .reproductor-musica p {
+    color: #b6c4df;
+    margin-bottom: 20px;
+}
+
+/* Efecto: contenedor de la miniatura. position:relative es
+   necesario para ubicar el botón play encima de la imagen. */
+#musica .portada-musica {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    background: #080e20;
+}
+
+/* Efecto: la miniatura de YouTube mantiene proporción 16:9. */
+#musica .portada-musica img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+/* Efecto hover: la miniatura se agranda un poco (zoom). */
+#musica .portada-musica:hover img { transform: scale(1.04); }
+
+/* Efecto: botón play circular centrado sobre la miniatura
+   (position:absolute + top/left 50% + translate(-50%,-50%)).
+   Al hacer clic abre YouTube. Tiene animación de pulso. */
+#musica .icono-portada {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(8, 14, 25, 0.85);
+    color: var(--celeste);
+    font-size: 45px;
+    text-decoration: none;
+    transition: 0.3s;
+    cursor: pointer;
+    animation: pulso 2s infinite;
+}
+
+/* Efecto hover: el play se pone rosa y crece. */
+#musica .icono-portada:hover {
+    background: var(--rosa);
+    color: white;
+    transform: translate(-50%, -50%) scale(1.12);
+}
+
+/* Animación "pulso": una sombra celeste que se expande y se
+   desvanece, repetida infinitamente para llamar la atención. */
+@keyframes pulso {
+    0%   { box-shadow: 0 0 0 0 rgba(98, 230, 220, 0.5); }
+    70%  { box-shadow: 0 0 0 18px rgba(98, 230, 220, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(98, 230, 220, 0); }
+}
+
+/* Efecto: texto guía bajo la miniatura, centrado. */
+#musica .pista-play {
+    display: block;
+    text-align: center;
+    margin-top: 16px;
+    color: #b6c4df;
+}
+
+/* =====================================================
+   FRASE CARACTERÍSTICA
+   Pertenece a: <section class="seccion-frase">.
+===================================================== */
+
+/* Efecto: banda con degradado de tres colores y bordes
+   celestes tenues arriba y abajo. */
+.seccion-frase {
+    padding: 75px 20px;
+    background: linear-gradient(120deg, #1b1440, #12343b, #3a1736);
+    border-top: 1px solid #62e6dc40;
+    border-bottom: 1px solid #62e6dc40;
+}
+
+/* Efecto: comilla decorativa gigante en rosa. */
+.comilla {
+    color: var(--rosa);
+    font-size: 80px;
+    font-weight: bold;
+    line-height: 1;
+}
+
+/* Efecto: frase grande, centrada y con ancho limitado. */
+.seccion-frase h2 {
+    max-width: 800px;
+    margin: 15px auto 25px;
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Efecto: leyenda "MI FRASE CARACTERÍSTICA" pequeña y espaciada. */
+.seccion-frase p {
+    color: var(--celeste);
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+/* =====================================================
+   PIE DE PÁGINA
+   Pertenece a: <footer class="footer">.
+===================================================== */
+
+/* Efecto: fondo más oscuro que el resto con línea superior. */
+.footer {
+    background-color: #070b13;
+    border-top: 1px solid #24334a;
+    padding: 40px 0 20px;
+}
+
+/* Efecto: nombre "BEIMAR" con letras separadas. */
+.footer h4 {
+    color: white;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+/* Efecto: textos del pie en gris claro. */
+.footer p {
+    color: #a2afc3;
+    font-size: 14px;
+}
+
+/* Efecto: espacio arriba y abajo del grupo de redes sociales. */
+.redes { margin: 20px 0; }
+
+/* Efecto: enlaces con forma de botón "píldora" con borde celeste. */
+.redes a {
+    display: inline-block;
+    color: var(--celeste);
+    border: 1px solid #263b59;
+    border-radius: 20px;
+    padding: 8px 16px;
+    margin: 5px;
+    font-size: 13px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* Efecto hover: el botón se rellena de celeste. */
+.redes a:hover {
+    color: #090e19;
+    background-color: var(--celeste);
+}
+
+/* Efecto: copyright más pequeño y separado. */
+.footer .copyright {
+    margin-top: 25px;
+    font-size: 12px;
+}
+
+/* =====================================================
+   RESPONSIVE (ADAPTACIÓN A CELULARES Y TABLETS)
+   @media aplica estas reglas solo cuando la pantalla es
+   más angosta que el valor indicado. Efecto: todo se
+   reduce para que se vea bien en pantallas pequeñas.
+===================================================== */
+
+/* Pantallas de hasta 768px (tablets y celulares) */
+@media (max-width: 768px) {
+    /* Carrusel más bajo y con textos más pequeños */
+    #miCarrusel img { height: 350px; }
+    #miCarrusel .carousel-caption { bottom: 15%; }
+    #miCarrusel .carousel-caption h2 { font-size: 23px; }
+    #miCarrusel .carousel-caption p { font-size: 13px; }
+
+    /* Secciones con menos espacio y títulos más chicos */
+    .seccion { padding: 60px 0; }
+    .titulo-seccion h2 { font-size: 29px; }
+    .tarjeta img,
+    .tarjeta-juego img { height: 190px; }
+    .seccion-frase h2 { font-size: 24px; }
+
+    /* Música: pasa de 2 columnas a 1 (lista arriba, reproductor abajo) */
+    #musica .contenedor-musica { grid-template-columns: 1fr; }
+    #musica .reproductor-musica { padding: 18px; }
+    #musica .reproductor-musica h3 { font-size: 23px; }
+    #musica .cancion { padding: 15px; }
+}
+
+/* Pantallas de hasta 576px (celulares) */
+@media (max-width: 576px) {
+    /* Línea de tiempo: columnas más angostas para ganar espacio */
+    .timeline-item {
+        grid-template-columns: 48px 14px 1fr;
+        gap: 8px;
+        min-height: 110px;
+    }
+
+    .timeline-hora { font-size: 0.78rem; }
+
+    /* Reubica la línea vertical para alinearla con el punto */
+    .timeline-item:not(:last-child)::before { left: 54px; }
+
+    /* La etiqueta baja a otra línea si no cabe (flex-wrap) */
+    .timeline-contenido {
+        gap: 10px;
+        padding: 13px 10px;
+        flex-wrap: wrap;
+    }
+
+    .timeline-contenido > i { font-size: 1.3rem; }
+    .timeline-contenido h5 { font-size: 0.9rem; }
+    .timeline-contenido p { font-size: 0.75rem; }
+
+    .actividad-tag {
+        margin-left: 0;
+        font-size: 0.65rem;
+    }
+}

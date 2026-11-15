@@ -1,0 +1,111 @@
+/* Se conservan los colores, degradados, bordes y efectos originales.
+   Este archivo ajusta únicamente distribución, tipografía y accesibilidad. */
+:root { --app-height: 100dvh; --app-top: 0px; --header-height: 60px; --nav-space: 85px; }
+html,body { min-width: 280px; }
+body { height: var(--app-height); top:var(--app-top); bottom:auto; }
+.app-movil-cabecera { top:var(--app-top); }
+#inicio, main > .seccion {
+  top:calc(var(--app-top) + var(--header-height) + env(safe-area-inset-top,0px)) !important;
+  bottom:auto !important;
+  height:calc(var(--app-height) - var(--header-height) - var(--nav-space) - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px)) !important;
+}
+.app-movil-nav { top:calc(var(--app-top) + var(--app-height) - 76px - env(safe-area-inset-bottom,0px)); bottom:auto; }
+.app-mas-panel:not([hidden]) { bottom:auto; top:calc(var(--app-top) + var(--app-height) - 310px); max-height:calc(var(--app-height) - 95px); }
+button,.chip,.btn-favs,select,#estrellas button { min-height:44px; }
+button { touch-action:manipulation; }
+.corazon,#app-movil-tema,#estrellas button { min-width:44px; min-height:44px; }
+#inicio .carousel-indicators [data-bs-target] { display:grid;place-items:center;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;background:transparent; }
+#inicio .carousel-indicators [data-bs-target]::after { content:"";width:6px;height:6px;border-radius:20px;background:white; }
+#inicio .carousel-indicators .active::after { width:24px; }
+#inicio .carousel-indicators { bottom:0; margin-bottom:0; align-items:center; }
+.carousel-control-prev,.carousel-control-next { min-width:44px; }
+.flip { container-type:inline-size; }
+.flip-cara { min-width:0; }
+.dorso { padding:14px 11px; gap:7px; justify-content:flex-start; overflow:auto; scrollbar-width:thin; }
+.dorso h5 { font-size:clamp(13px,7cqw,18px); line-height:1.2; overflow-wrap:anywhere; flex-shrink:0; }
+.dorso p { font-size:clamp(11px,5.8cqw,14px); line-height:1.42; overflow-wrap:anywhere; margin:2px 0; flex-shrink:0; }
+.dorso .extra { width:100%; min-width:0; flex-shrink:0; }
+.dorso .dato,.dorso .sub { font-size:clamp(10px,5.4cqw,13px); line-height:1.35; overflow-wrap:anywhere; }
+.dorso .nivel-barra { margin:8px 0; }
+.frente h5 { font-size:clamp(13px,7cqw,20px); left:12px;right:12px;overflow-wrap:anywhere; }
+.frente small { left:12px; font-size:clamp(10px,5cqw,12px); }
+.insignia { max-width:calc(100% - 64px); overflow:hidden;white-space:nowrap;text-overflow:ellipsis; }
+.datos-cancion,.cancion,.grupo,.campo,.form-caja,.container,.contenedor-musica > * { min-width:0; }
+.datos-cancion strong,.datos-cancion small,.datos-cancion em { overflow-wrap:anywhere; }
+.datos-cancion strong { white-space:normal; }
+#musica .lista-musica { max-height:38dvh; }
+.orden-filtro { display:flex;align-items:center;gap:10px;margin-top:14px;font-size:13px; }
+.orden-filtro select { max-width:100%;border:1px solid #527085;border-radius:10px;background:var(--fondo);color:var(--texto);padding:6px; }
+.buscador { min-width:0;max-width:100%;width:100%;flex-basis:100%; }
+.buscador input { font-size:16px; }
+.grupo input,.grupo textarea { font-size:16px; }
+.chips { gap:8px; }
+.hamb-panel { width:min(360px,calc(100vw - 40px)); }
+.hamb-panel .chip { padding:8px 12px; }
+.estado-conexion,.aviso-app,.actualizar-app { position:fixed;z-index:1400;left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 24px);padding:10px 14px;border:1px solid #527085;border-radius:14px;background:#20364b;color:#f5f8ff;font-size:13px;box-shadow:0 6px 20px #0004; }
+.estado-conexion { top:calc(var(--app-top) + 4px); }
+.aviso-app,.actualizar-app { top:calc(var(--app-top) + var(--header-height) + 8px); }
+.aviso-app { pointer-events:none; }
+[hidden] { display:none !important; }
+.sin-conexion .app-movil-cabecera { padding-top:26px; height:86px; }
+.sin-conexion { --header-height:86px; }
+.teclado-abierto { --nav-space:8px; }
+.teclado-abierto .app-movil-nav { visibility:hidden;pointer-events:none; }
+.teclado-abierto #inicio { overflow:auto !important; }
+.form-caja { padding:clamp(16px,3vw,32px); }
+@media (min-width:768px) {
+  :root { --header-height:72px; --nav-space:96px; }
+  .app-movil-cabecera { height:72px;padding-left:max(28px,calc((100vw - 1240px)/2));padding-right:max(28px,calc((100vw - 1240px)/2)); }
+  .app-movil-marca strong,body[data-app-vista="inicio"] .app-movil-marca strong { font-size:28px; }
+  #inicio,main > .seccion { padding:20px max(24px,calc((100vw - 1240px)/2)) !important; }
+  #inicio.app-vista-activa { padding:20px max(24px,calc((100vw - 1240px)/2)) !important;gap:18px; }
+  #inicio #miCarrusel { flex-basis:40%; }
+  #inicio .app-movil-accesos { gap:16px; }
+  #inicio .app-movil-accesos button span { font-size:16px; }
+  #inicio .app-movil-accesos .acceso-pasatiempos span { font-size:20px; }
+  .app-movil-nav { left:50%;right:auto;transform:translateX(-50%);width:min(650px,calc(100% - 48px));height:72px;top:calc(var(--app-top) + var(--app-height) - 84px); }
+  .app-movil-nav button span { font-size:12px; }
+  .app-movil-nav button i { font-size:23px; }
+  .app-mas-panel:not([hidden]) { width:360px;left:50%;right:auto;transform:translateX(-50%); }
+  #grid-pasatiempos > *,#grid-intereses > *,#grid-juegos > * { width:33.333% !important;flex:0 0 33.333% !important;max-width:33.333% !important; }
+  .titulo-seccion h2 { font-size:30px; }
+  #musica .contenedor-musica { display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:start;gap:24px; }
+  #musica .lista-musica { max-height:calc(var(--app-height) - 260px); }
+  .tabla-horario { min-width:680px; }
+  .tabla-horario th,.tabla-horario td { padding:14px 10px; }
+}
+@media (min-width:1024px) and (min-aspect-ratio: 6/5) {
+  #inicio.app-vista-activa { flex-direction:row;align-items:stretch; }
+  #inicio #miCarrusel { flex:1 1 49%; }
+  #inicio .app-movil-accesos { flex:1 1 51%; }
+  #inicio #miCarrusel .carousel-caption h2 { font-size:clamp(23px,2.4vw,35px); }
+  #inicio #miCarrusel .carousel-caption p { font-size:15px; }
+  #inicio #miCarrusel .carousel-caption { bottom:50px !important; }
+}
+@media (min-width:1280px) {
+  #grid-juegos > * { width:25% !important;flex-basis:25% !important;max-width:25% !important; }
+}
+@media (orientation:landscape) and (max-height:500px) {
+  :root { --header-height:44px;--nav-space:62px; }
+  .app-movil-cabecera { height:44px;padding-left:16px;padding-right:16px; }
+  .app-movil-marca span { display:none; }
+  .app-movil-marca strong,body[data-app-vista="inicio"] .app-movil-marca strong { font-size:20px; }
+  #inicio.app-vista-activa { flex-direction:row;gap:12px; }
+  #inicio #miCarrusel { flex:0 0 42%; }
+  #inicio .app-movil-accesos { grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:8px; }
+  #inicio .app-movil-accesos button { grid-area:auto;flex-direction:column;align-items:center;justify-content:center;padding:6px;gap:4px; }
+  #inicio .app-movil-accesos button i,#inicio .app-movil-accesos .acceso-pasatiempos i,#inicio .app-movil-accesos .acceso-juegos i,#inicio .app-movil-accesos .acceso-musica i { font-size:28px;transform:none; }
+  #inicio .app-movil-accesos button span,#inicio .app-movil-accesos .acceso-pasatiempos span { font-size:12px; }
+  #inicio .acceso-miniatura { display:none; }
+  .app-movil-nav { height:52px;top:calc(var(--app-top) + var(--app-height) - 58px);width:min(600px,calc(100% - 24px));left:50%;right:auto;transform:translateX(-50%);padding:4px; }
+  .app-movil-nav button { flex-direction:row;gap:6px;min-height:44px; }
+  .app-movil-nav button span { font-size:10px; }
+  .titulo-seccion { margin-bottom:4px;padding-bottom:6px; }
+  .titulo-seccion p,.titulo-seccion > span { display:none; }
+  #musica .contenedor-musica { display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  #musica .lista-musica { max-height:calc(var(--app-height) - 180px); }
+  .app-mas-panel:not([hidden]) { top:calc(var(--app-top) + 48px);max-height:calc(var(--app-height) - 112px); }
+}
+@media (prefers-reduced-motion:reduce) {
+  *,*::before,*::after { animation:none !important;transition:none !important;scroll-behavior:auto !important; }
+}
