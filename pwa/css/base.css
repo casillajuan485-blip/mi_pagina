@@ -1,0 +1,32 @@
+/* Base local: normalización y utilidades utilizadas por esta página.
+   El carrusel se controla en src/main.js. No requiere CDN para funcionar. */
+*,*::before,*::after { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body { margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;font-size:1rem;font-weight:400;line-height:1.5;text-align:left; }
+h1,h2,h3,h4,h5,h6 { margin-top:0;margin-bottom:.5rem;font-weight:500;line-height:1.2; }
+h2 { font-size:2rem; }h3 { font-size:1.75rem; }h4 { font-size:1.5rem; }h5 { font-size:1.25rem; }
+p { margin-top:0;margin-bottom:1rem; }small { font-size:.875em; }strong,b { font-weight:bolder; }
+a { color:#0d6efd;text-decoration:underline; }img,svg { vertical-align:middle; }img { max-width:100%; }
+button,input,select,textarea { margin:0;font:inherit;line-height:inherit; }button,select { text-transform:none; }button { cursor:pointer; }button:disabled { cursor:default; }textarea { resize:vertical; }
+button,[type=button],[type=submit] { -webkit-appearance:button; }button:focus:not(:focus-visible){outline:0;}
+table { caption-side:bottom;border-collapse:collapse; }th { text-align:inherit; }ul { margin-top:0;margin-bottom:1rem;padding-left:2rem; }
+.container { width:100%;padding-right:12px;padding-left:12px;margin-right:auto;margin-left:auto; }
+.row { --bs-gutter-x:1.5rem;--bs-gutter-y:0;display:flex;flex-wrap:wrap;margin-top:calc(-1 * var(--bs-gutter-y));margin-right:calc(-.5 * var(--bs-gutter-x));margin-left:calc(-.5 * var(--bs-gutter-x)); }
+.row > * { flex-shrink:0;width:100%;max-width:100%;padding-right:calc(var(--bs-gutter-x) * .5);padding-left:calc(var(--bs-gutter-x) * .5);margin-top:var(--bs-gutter-y); }
+.g-4 { --bs-gutter-x:1.5rem;--bs-gutter-y:1.5rem; }.col-12 { flex:0 0 auto;width:100%; }
+.text-center { text-align:center !important; }.mx-auto { margin-left:auto !important;margin-right:auto !important; }.ms-auto { margin-left:auto !important; }.my-4 { margin-top:1.5rem !important;margin-bottom:1.5rem !important; }.mt-3 { margin-top:1rem !important; }.w-100 { width:100% !important; }.d-block { display:block !important; }.justify-content-center { justify-content:center !important; }
+.table-responsive { overflow-x:auto;-webkit-overflow-scrolling:touch; }.alert { padding:1rem;border:1px solid transparent;border-radius:.375rem; }.alert-success { color:#0f5132;background:#d1e7dd;border-color:#badbcc; }
+.carousel { position:relative; }.carousel-inner { position:relative;width:100%;overflow:hidden; }.carousel-inner::after { display:block;clear:both;content:""; }.carousel-item { position:relative;display:none;float:left;width:100%;margin-right:-100%;backface-visibility:hidden; }.carousel-item.active { display:block;animation:carousel-appear .4s ease; }
+@keyframes carousel-appear { from { opacity:.35; }to { opacity:1; } }
+.carousel-caption { position:absolute;right:15%;bottom:1.25rem;left:15%;padding-top:1.25rem;padding-bottom:1.25rem;color:#fff;text-align:center; }
+.carousel-indicators { position:absolute;right:0;bottom:0;left:0;z-index:2;display:flex;justify-content:center;padding:0;margin-right:15%;margin-bottom:1rem;margin-left:15%; }
+.carousel-indicators button { box-sizing:content-box;flex:0 1 auto;width:30px;height:3px;padding:0;margin:0 3px;text-indent:-999px;cursor:pointer;background-color:#fff;background-clip:padding-box;border:0;opacity:.5; }
+.carousel-indicators .active { opacity:1; }
+.carousel-control-prev,.carousel-control-next { position:absolute;top:0;bottom:0;z-index:1;display:flex;align-items:center;justify-content:center;width:15%;padding:0;color:#fff;text-align:center;background:none;border:0;opacity:.5; }
+.carousel-control-prev { left:0; }.carousel-control-next { right:0; }.carousel-control-prev:hover,.carousel-control-next:hover { opacity:.9; }
+.carousel-control-prev-icon,.carousel-control-next-icon { display:inline-block;width:2rem;height:2rem;border:solid white;border-width:0 3px 3px 0;transform:rotate(135deg) scale(.55); }.carousel-control-next-icon { transform:rotate(-45deg) scale(.55); }
+@media (min-width:576px) { .container { max-width:540px; }.col-sm-6 { flex:0 0 auto;width:50%; } }
+@media (min-width:768px) { .container { max-width:720px; } }
+@media (min-width:992px) { .container { max-width:960px; }.col-lg-4 { flex:0 0 auto;width:33.333333%; } }
+@media (min-width:1200px) { .container { max-width:1140px; } }
+@media (min-width:1400px) { .container { max-width:1320px; } }
