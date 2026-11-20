@@ -1,0 +1,197 @@
+@layer responsive {
+
+/* Se conservan los colores, degradados, bordes y efectos originales.
+   Este archivo ajusta únicamente distribución, tipografía y accesibilidad. */
+
+:root { --app-height: 100dvh; --app-top: 0px; --header-height: 60px; --nav-space: 85px; }
+
+html,body { min-width: 280px; }
+
+body { height: var(--app-height); top:var(--app-top); bottom:auto; }
+
+.app-movil-cabecera { top:var(--app-top); }
+
+[id="inicio"], main > .seccion {
+  top:calc(var(--app-top) + var(--header-height) + env(safe-area-inset-top,0px));
+  bottom:auto;
+  height:calc(var(--app-height) - var(--header-height) - var(--nav-space) - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));
+}
+
+.navegacion-inferior { top:calc(var(--app-top) + var(--app-height) - 76px - env(safe-area-inset-bottom,0px)); bottom:auto; }
+
+.mas:not([hidden]) { bottom:auto; top:calc(var(--app-top) + var(--app-height) - 310px); max-height:calc(var(--app-height) - 95px); }
+
+button,.chip,.btn-favs,select,[id="estrellas"] button { min-height:44px; }
+
+button { touch-action:manipulation; }
+
+.favorito__boton,[id="app-movil-tema"],[id="estrellas"] button { min-width:44px; min-height:44px; }
+
+[id="inicio"] .carousel-indicators [data-bs-target] { display:grid;place-items:center;width:44px;height:44px;min-width:44px;min-height:44px;padding:0;background:transparent; }
+
+[id="inicio"] .carousel-indicators [data-bs-target]::after { content:"";width:6px;height:6px;border-radius:20px;background:white; }
+
+[id="inicio"] .carousel-indicators .active::after { width:24px; }
+
+[id="inicio"] .carousel-indicators { bottom:0; margin-bottom:0; align-items:center; }
+
+.carousel-control-prev,.carousel-control-next { min-width:44px; }
+
+.tarjeta-giro { container-type:inline-size; }
+
+.tarjeta-giro__cara { min-width:0; }
+
+.tarjeta-giro__dorso { padding:14px 11px; gap:7px; justify-content:flex-start; overflow:auto; scrollbar-width:thin; }
+
+.tarjeta-giro__dorso h5 { font-size:clamp(13px,7cqw,18px); line-height:1.2; overflow-wrap:anywhere; flex-shrink:0; }
+
+.tarjeta-giro__dorso p { font-size:clamp(11px,5.8cqw,14px); line-height:1.42; overflow-wrap:anywhere; margin:2px 0; flex-shrink:0; }
+
+.tarjeta-giro__dorso .extra { width:100%; min-width:0; flex-shrink:0; }
+
+.tarjeta-giro__dorso .dato,.tarjeta-giro__dorso .sub { font-size:clamp(10px,5.4cqw,13px); line-height:1.35; overflow-wrap:anywhere; }
+
+.tarjeta-giro__dorso .nivel-barra { margin:8px 0; }
+
+.tarjeta-giro__frente h5 { overflow:hidden;white-space:nowrap;text-overflow:ellipsis; font-size:clamp(13px,7cqw,20px); left:12px;right:12px;overflow-wrap:anywhere; }
+
+.tarjeta-giro__frente small { left:12px; font-size:clamp(10px,5cqw,12px); }
+
+.tarjeta-giro__insignia { max-width:calc(100% - 64px); overflow:hidden;white-space:nowrap;text-overflow:ellipsis; }
+
+.pista__datos,.cancion,.grupo,.campo,.form-caja,.container,.contenedor-musica > * { min-width:0; }
+
+.pista__datos strong,.pista__datos small,.pista__datos em { overflow-wrap:anywhere; }
+
+.pista__datos strong { overflow:hidden;white-space:nowrap;text-overflow:ellipsis; }
+
+[id="musica"] .lista-musica { max-height:38dvh; }
+
+.orden-filtro { display:flex;align-items:center;gap:10px;margin-top:14px;font-size:13px; }
+
+.orden-filtro select { max-width:100%;border:1px solid #527085;border-radius:10px;background:var(--fondo);color:var(--texto);padding:6px; }
+
+.buscador { min-width:0;max-width:100%;width:100%;flex-basis:100%; }
+
+.buscador input { font-size:16px; }
+
+.grupo input,.grupo textarea { font-size:16px; }
+
+.chips { gap:8px; }
+
+.hamb-panel { width:min(360px,calc(100vw - 40px)); }
+
+.hamb-panel .chip { padding:8px 12px; }
+
+.estado-conexion,.aviso-app,.actualizar-app { position:fixed;z-index:1400;left:50%;transform:translateX(-50%);width:max-content;max-width:calc(100% - 24px);padding:10px 14px;border:1px solid #527085;border-radius:14px;background:#20364b;color:#f5f8ff;font-size:13px;box-shadow:0 6px 20px #0004; }
+
+.estado-conexion { top:calc(var(--app-top) + 4px); }
+
+.aviso-app,.actualizar-app { top:calc(var(--app-top) + var(--header-height) + 8px); }
+
+.aviso-app { pointer-events:none; }
+
+[hidden] { display:none !important; }
+
+.sin-conexion .app-movil-cabecera { padding-top:26px; height:86px; }
+
+.sin-conexion { --header-height:86px; }
+
+.teclado-abierto { --nav-space:8px; }
+
+.teclado-abierto .navegacion-inferior { visibility:hidden;pointer-events:none; }
+
+.teclado-abierto [id="inicio"] { overflow:auto; }
+
+.form-caja { padding:clamp(16px,3vw,32px); }
+
+@media (min-width:768px) {
+  :root { --header-height:72px; --nav-space:96px; }
+  .app-movil-cabecera { height:72px;padding-left:max(28px,calc((100vw - 1240px)/2));padding-right:max(28px,calc((100vw - 1240px)/2)); }
+  .app-movil-marca strong,body[data-app-vista="inicio"] .app-movil-marca strong { font-size:28px; }
+  [id="inicio"],main > .seccion { padding:20px max(24px,calc((100vw - 1240px)/2)); }
+  [id="inicio"].app-vista-activa { padding:20px max(24px,calc((100vw - 1240px)/2));gap:18px; }
+  [id="inicio"] [id="miCarrusel"] { flex-basis:40%; }
+  [id="inicio"] .accesos-inicio { gap:16px; }
+  [id="inicio"] .accesos-inicio button span { font-size:16px; }
+  [id="inicio"] .accesos-inicio .acceso-pasatiempos span { font-size:20px; }
+  .navegacion-inferior { left:50%;right:auto;transform:translateX(-50%);width:min(650px,calc(100% - 48px));height:72px;top:calc(var(--app-top) + var(--app-height) - 84px); }
+  .navegacion-inferior button span { font-size:12px; }
+  .navegacion-inferior button i { font-size:23px; }
+  .mas:not([hidden]) { width:360px;left:50%;right:auto;transform:translateX(-50%); }
+  [id="grid-pasatiempos"] > *,[id="grid-intereses"] > *,[id="grid-juegos"] > * { width:33.333%;flex:0 0 33.333%;max-width:33.333%; }
+  .titulo-seccion h2 { font-size:30px; }
+  [id="musica"] .contenedor-musica { display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:start;gap:24px; }
+  [id="musica"] .lista-musica { max-height:calc(var(--app-height) - 260px); }
+  .tabla-horario { min-width:680px; }
+  .tabla-horario th,.tabla-horario td { padding:14px 10px; }
+}
+
+@media (min-width:1024px) and (min-aspect-ratio: 6/5) {
+  [id="inicio"].app-vista-activa { flex-direction:row;align-items:stretch; }
+  [id="inicio"] [id="miCarrusel"] { flex:1 1 49%; }
+  [id="inicio"] .accesos-inicio { flex:1 1 51%; }
+  [id="inicio"] [id="miCarrusel"] .carousel-caption h2 { font-size:clamp(23px,2.4vw,35px); }
+  [id="inicio"] [id="miCarrusel"] .carousel-caption p { font-size:15px; }
+  [id="inicio"] [id="miCarrusel"] .carousel-caption { bottom:50px; }
+}
+
+@media (min-width:1280px) {
+  [id="grid-juegos"] > * { width:25%;flex-basis:25%;max-width:25%; }
+}
+
+@media (orientation:landscape) and (max-height:500px) {
+  :root { --header-height:44px;--nav-space:62px; }
+  .app-movil-cabecera { height:44px;padding-left:16px;padding-right:16px; }
+  .app-movil-marca span { display:none; }
+  .app-movil-marca strong,body[data-app-vista="inicio"] .app-movil-marca strong { font-size:20px; }
+  [id="inicio"].app-vista-activa { flex-direction:row;gap:12px; }
+  [id="inicio"] [id="miCarrusel"] { flex:0 0 42%; }
+  [id="inicio"] .accesos-inicio { grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:8px; }
+  [id="inicio"] .accesos-inicio button { grid-area:auto;flex-direction:column;align-items:center;justify-content:center;padding:6px;gap:4px; }
+  [id="inicio"] .accesos-inicio button i,[id="inicio"] .accesos-inicio .acceso-pasatiempos i,[id="inicio"] .accesos-inicio .acceso-juegos i,[id="inicio"] .accesos-inicio .acceso-musica i { font-size:28px;transform:none; }
+  [id="inicio"] .accesos-inicio button span,[id="inicio"] .accesos-inicio .acceso-pasatiempos span { font-size:12px; }
+  [id="inicio"] .acceso-miniatura { display:none; }
+  .navegacion-inferior { height:52px;top:calc(var(--app-top) + var(--app-height) - 58px);width:min(600px,calc(100% - 24px));left:50%;right:auto;transform:translateX(-50%);padding:4px; }
+  .navegacion-inferior button { flex-direction:row;gap:6px;min-height:44px; }
+  .navegacion-inferior button span { font-size:10px; }
+  .titulo-seccion { margin-bottom:4px;padding-bottom:6px; }
+  .titulo-seccion p,.titulo-seccion > span { display:none; }
+  [id="musica"] .contenedor-musica { display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr); }
+  [id="musica"] .lista-musica { max-height:calc(var(--app-height) - 180px); }
+  .mas:not([hidden]) { top:calc(var(--app-top) + 48px);max-height:calc(var(--app-height) - 112px); }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  *,*::before,*::after { animation:none !important;transition:none !important;scroll-behavior:auto !important; }
+}
+
+/* Móvil: reduce la altura del marco para cuidar el encuadre de las fotos.
+   Afecta a Juegos, Intereses y Pasatiempos. Conserva el alto mínimo del reverso. */
+
+@media (max-width: 767px) {
+  .tarjeta-giro {
+    height: clamp(220px, 50vw, 266px);
+  }
+  .tarjeta-giro__frente img {
+    display: block;
+    object-position: center 38%;
+  }
+  [id="inicio"] [id="miCarrusel"] img { object-position: center 42%; }
+  [id="inicio"] .acceso-miniatura { object-position: center; }
+  [id="musica"] .reproductor-musica { padding: clamp(12px, 4vw, 20px); }
+  [id="musica"] .portada-musica img {
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+  }
+  [id="musica"] .cancion {
+    column-gap: 9px;
+    padding: 10px;
+  }
+  [id="musica"] .pista__datos .etiqueta-cat {
+    letter-spacing: .25px;
+    overflow-wrap: anywhere;
+  }
+}
+}

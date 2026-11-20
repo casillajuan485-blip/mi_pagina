@@ -1,0 +1,44 @@
+[
+  {
+    "titulo": "Dibujar",
+    "insignia": "Creatividad",
+    "icono": "bi-palette-fill",
+    "img": "img/portada-dibujo.svg",
+    "desc": "Me gusta expresar mi creatividad, realizar dibujos y representar ideas mediante el arte cuando estoy en mis tiempos libres."
+  },
+  {
+    "titulo": "Ver películas",
+    "insignia": "Cine",
+    "icono": "bi-film",
+    "img": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80",
+    "desc": "Disfruto ver películas, conocer nuevas historias y entretenerme con diferentes géneros cinematográficos soy muy fanatico de las peliculas y las amo."
+  },
+  {
+    "titulo": "Videojuegos",
+    "insignia": "Gaming",
+    "icono": "bi-controller",
+    "img": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=800&q=80",
+    "desc": "Me gusta jugar videojuegos, superar desafíos y disfrutar de experiencias de aventura y estrategia en los juegos que juego y me entretienen demasiado amo los videojuegos :)."
+  },
+  {
+    "titulo": "Practicar Deportes",
+    "insignia": "Deporte",
+    "icono": "bi-dribbble",
+    "img": "https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=800&q=80",
+    "desc": "Me gusta practicar deportes, especialmente el fútbol, porque me ayuda a mantenerme activo y compartir con otras personas o amigos mas que todo me adapto a cualquier posesion en el futbol :)."
+  },
+  {
+    "titulo": "Escuchar música",
+    "insignia": "Música",
+    "icono": "bi-music-note-beamed",
+    "img": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=800&q=80",
+    "desc": "La música me acompaña en diferentes momentos y me permite relajarme y disfrutar de mi tiempo mas que todo cuando realizo tareas  o momentos de descanso me facina :)."
+  },
+  {
+    "titulo": "Jugar con mis mascotas",
+    "insignia": "Familia",
+    "icono": "bi-rocket-takeoff-fill",
+    "img": "img/pasatiempo.webp",
+    "desc": "Jugar con mis mascotas me pone contento y feliz son mi familia de 4 patas mas mi hermano :) los amos a mis peluditos."
+  }
+]

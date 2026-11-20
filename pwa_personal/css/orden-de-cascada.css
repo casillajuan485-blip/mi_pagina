@@ -1,0 +1,2 @@
+/* El orden entre capas resuelve los ajustes de diseño sin subir especificidad. */
+@layer base, iconos, secciones, movimiento, menus, componentes, portada, responsive, controles;

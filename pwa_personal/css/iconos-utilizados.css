@@ -1,0 +1,93 @@
+@layer iconos {
+
+/*!
+ * Bootstrap Icons v1.11.3 (https://icons.getbootstrap.com/)
+ * Copyright 2019-2024 The Bootstrap Authors
+ * Licensed under MIT (https://github.com/twbs/icons/blob/main/LICENSE)
+ */
+
+@font-face {
+  font-display: block;
+  font-family: "bootstrap-icons";
+  src: url("./bootstrap-icons.woff2") format("woff2");
+}
+
+.bi::before,
+[class^="bi-"]::before,
+[class*=" bi-"]::before {
+  display: inline-block;
+  font-family: bootstrap-icons;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -.125em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bi-arrow-down-circle::before { content: "\f119"; }
+
+.bi-arrow-repeat::before { content: "\f130"; }
+
+.bi-arrow-up-circle::before { content: "\f13a"; }
+
+.bi-calendar-week-fill::before { content: "\f1f2"; }
+
+.bi-check-circle-fill::before { content: "\f26a"; }
+
+.bi-chevron-right::before { content: "\f285"; }
+
+.bi-code-slash::before { content: "\f2c6"; }
+
+.bi-controller::before { content: "\f2d4"; }
+
+.bi-cpu-fill::before { content: "\f2d5"; }
+
+.bi-download::before { content: "\f30a"; }
+
+.bi-eye-slash::before { content: "\f340"; }
+
+.bi-film::before { content: "\f3c3"; }
+
+.bi-globe2::before { content: "\f3ef"; }
+
+.bi-heart-fill::before { content: "\f415"; }
+
+.bi-heart::before { content: "\f417"; }
+
+.bi-house-door-fill::before { content: "\f422"; }
+
+.bi-lightbulb-fill::before { content: "\f468"; }
+
+.bi-list::before { content: "\f479"; }
+
+.bi-moon-stars::before { content: "\f496"; }
+
+.bi-music-note-beamed::before { content: "\f49e"; }
+
+.bi-palette-fill::before { content: "\f4b0"; }
+
+.bi-play-fill::before { content: "\f4f4"; }
+
+.bi-search::before { content: "\f52a"; }
+
+.bi-sun-fill::before { content: "\f5a1"; }
+
+.bi-three-dots::before { content: "\f5d4"; }
+
+.bi-vinyl-fill::before { content: "\f607"; }
+
+.bi-translate::before { content: "\f658"; }
+
+.bi-x-lg::before { content: "\f659"; }
+
+.bi-dribbble::before { content: "\f65f"; }
+
+.bi-chat-square-heart-fill::before { content: "\f719"; }
+
+.bi-rocket-takeoff-fill::before { content: "\f844"; }
+
+.bi-database-fill::before { content: "\f8be"; }
+}

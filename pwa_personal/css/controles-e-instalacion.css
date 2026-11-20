@@ -1,0 +1,93 @@
+@layer controles {
+
+/* BEM y especificidad: el bloque y sus elementos usan clases explícitas.
+   :where() mantiene en cero el peso de los estilos táctiles generales. */
+
+:where(button, [role="button"], .mas a) { min-inline-size:44px; min-block-size:44px; }
+
+.instalacion {
+  position:fixed; z-index:1450;
+  inset-block-start:calc(var(--app-top) + env(safe-area-inset-top, 0px) + 6px);
+  inset-inline:0; margin-inline:auto; inline-size:fit-content;
+  max-inline-size:calc(100% - 16px); display:flex; gap:8px; align-items:center;
+  padding:4px 8px 4px 12px; border:1px solid #527085; border-radius:14px;
+  background:#20364b; color:#f5f8ff; box-shadow:0 6px 20px #0004;
+  font-size:13px;
+}
+
+.instalacion__accion,.instalacion__cerrar {
+  border:0; border-radius:10px; color:#f5f8ff; background:#304c60;
+  padding-inline:9px; font-weight:700;
+}
+
+.instalacion__accion:focus-visible,.instalacion__cerrar:focus-visible { outline:2px solid #62e6dc; }
+
+.instalacion__cerrar { font-size:20px; }
+
+.mas__ayuda { margin:8px 0 2px; padding:8px; font-size:14px; }
+
+[id="musica"] .pista__datos { flex:1 1 auto; min-inline-size:0; }
+
+[id="musica"] .pista__datos strong { display:block; }
+
+.teclado-abierto .instalacion { visibility:hidden; }
+
+/* El panel mantiene todos sus botones accesibles incluso en pantallas bajas. */
+
+.mas:not([hidden]) {
+  top:auto;
+  bottom:calc(83px + env(safe-area-inset-bottom,0px));
+  max-height:calc(var(--app-height) - 108px);
+}
+
+@media (orientation:landscape) and (max-height:500px) {
+  .mas:not([hidden]) { bottom:62px; max-height:calc(var(--app-height) - 113px); }
+}
+
+/* Aviso de éxito compartido por Opinión e Inicio. No ocupa espacio en el formulario. */
+
+.opinion-exito {
+  position: fixed;
+  z-index: 1460;
+  inset-block-start: calc(var(--app-top) + env(safe-area-inset-top, 0px) + 68px);
+  inset-inline: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  inline-size: max-content;
+  max-inline-size: calc(100% - 24px);
+  margin-inline: auto;
+  padding: 12px 16px;
+  border: 1px solid #56dec0;
+  border-radius: 16px;
+  color: #f4fffc;
+  background: #113932;
+  box-shadow: 0 10px 28px #0008;
+  animation: aparecer-opinion .18s ease-out;
+}
+
+.opinion-exito__icono {
+  display: grid;
+  flex: 0 0 34px;
+  place-items: center;
+  min-block-size: 34px;
+  border-radius: 50%;
+  color: #0a302b;
+  background: #80f2d6;
+  font-weight: 800;
+}
+
+.opinion-exito strong,
+.opinion-exito__detalle { display: block; }
+
+.opinion-exito__detalle { color: #c5efe5; font-size: .8rem; }
+
+@keyframes aparecer-opinion {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (orientation: landscape) and (max-height: 500px) {
+  .opinion-exito { inset-block-start: calc(var(--app-top) + 50px); }
+}
+}

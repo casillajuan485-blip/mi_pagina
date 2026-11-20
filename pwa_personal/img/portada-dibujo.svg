@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540">
+<title>Materiales de dibujo</title>
+<defs><linearGradient id="mesa" x2="1" y2="1"><stop stop-color="#164453"/><stop offset="1" stop-color="#282042"/></linearGradient><linearGradient id="papel"><stop stop-color="#fbebd1"/><stop offset="1" stop-color="#c7b6a7"/></linearGradient></defs>
+<path fill="url(#mesa)" d="M0 0h960v540H0z"/>
+<g transform="rotate(-12 480 270)">
+<rect x="187" y="83" width="567" height="385" rx="25" fill="#0a1625" opacity=".65"/>
+<rect x="174" y="66" width="567" height="385" rx="20" fill="url(#papel)"/>
+<path d="M454 76v365" stroke="#8e7d89" opacity=".55" stroke-width="4"/>
+<path d="M512 322l53-79 50 52 42-41 45 68z" fill="#70a8a7" stroke="#406974" stroke-width="4"/>
+<circle cx="628" cy="213" r="24" fill="#d7976f"/>
+<path d="M229 189h168m-168 32h138m-138 32h152m-152 32h116" stroke="#837791" opacity=".48" stroke-width="5" stroke-linecap="round"/>
+</g>
+<g transform="rotate(22 790 285)"><path d="M779 114h22v291l-11 31-11-31z" fill="#efb065"/><path d="M779 405h22l-11 31z" fill="#ebdac2"/><path d="M786 426h8l-4 10z" fill="#20263c"/></g>
+<g transform="rotate(31 839 296)"><path d="M830 160h18v257l-9 24-9-24z" fill="#67c9c6"/><path d="M830 417h18l-9 24z" fill="#e6cab6"/></g>
+</svg>
